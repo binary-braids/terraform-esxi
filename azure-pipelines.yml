@@ -10,7 +10,6 @@ jobs:
       inputs:
         script: |
           terraform init
-        workingDirectory: $(System.DefaultWorkingDirectory)
 
   - job: 'terraformplan'
     dependsOn: terraforminit
@@ -21,7 +20,7 @@ jobs:
       inputs:
         script: |
           terraform plan
-        workingDirectory: $(System.DefaultWorkingDirectory)
+    - checkout: none
 
   - job: 'terraformapply'
     dependsOn: terraformplan
@@ -32,4 +31,4 @@ jobs:
       inputs:
         script: |
           terraform apply -var-file="/terraform/linux_template.tfvars" -auto-approve
-        workingDirectory: $(System.DefaultWorkingDirectory)
+    - checkout: none
