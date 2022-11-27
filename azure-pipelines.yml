@@ -1,0 +1,32 @@
+trigger:
+- none
+
+jobs:
+  - job: 'terraforminit'
+    displayName: 'Terraform Init'
+    pool: Self-Hosted
+    steps:
+    - task: CmdLine@2       
+      inputs:
+        script: |
+          terraform init
+
+  - job: 'terraformplan'
+    dependsOn: terraforminit
+    displayName: 'Terraform Plan' 
+    pool: Self-Hosted
+    steps:
+    - task: CmdLine@2
+      inputs:
+        script: |
+          terraform plan
+
+  - job: 'terraformapply'
+    dependsOn: terraformplan
+    displayName: 'Terraform Apply' 
+    pool: Self-Hosted
+    steps:
+    - task: CmdLine@2
+      inputs:
+        script: |
+          terraform apply -auto-approve
