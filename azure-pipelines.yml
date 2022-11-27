@@ -9,7 +9,7 @@ jobs:
     - task: CmdLine@2       
       inputs:
         script: |
-          terraform init
+          terraform init -backend-config="/terraform/variables/backend.tf"
 
   - job: 'terraformplan'
     dependsOn: terraforminit
