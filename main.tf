@@ -9,6 +9,7 @@ terraform {
       # https://registry.terraform.io/providers/josenk/esxi
     }
   }
+  backend "remote" {}
 }
 
 provider "esxi" {
