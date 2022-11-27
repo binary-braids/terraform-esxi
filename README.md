@@ -32,6 +32,8 @@ Install the bundle file:
 sudo ./name_of_the_file.bundle
 ```
 3. Make a new .tfvars file on the location where you are running Terraform from that corresponds with the variables.tf file included with the repo
+3.1 If you don't use a remote backend config you can take this out of the main.tf file
+3.2 If you do, you will either need to add the full block with your backend details. more info - https://developer.hashicorp.com/terraform/language/settings/backends/configuration
 4. Run ```terraform init``` to initialize terraform repo
 5. Run ```terraform plan``` to make sure as to what terraform will do
 6. Run ```terraform apply``` to apply the terraform config
