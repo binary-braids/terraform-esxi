@@ -47,4 +47,9 @@ variable "virtual_network" {
     description = "Virtual Network for guest VM"
 }
 
+variable "nic_type" {
+    type = string
+    description = "NIC type for guest VM"
+}
+
 

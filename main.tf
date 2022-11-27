@@ -28,5 +28,6 @@ resource "esxi_guest" "vm" {
 
   network_interfaces {
     virtual_network = var.virtual_network
+    nic_type = var.nic_type
   }
 }
