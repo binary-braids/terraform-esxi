@@ -19,7 +19,7 @@ jobs:
     - task: CmdLine@2
       inputs:
         script: |
-          terraform plan
+          terraform plan -var-file="/terraform/linux_template.tfvars"
     - checkout: none
 
   - job: 'terraformapply'
