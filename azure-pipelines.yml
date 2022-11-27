@@ -14,7 +14,6 @@ jobs:
 
   - job: 'terraformplan'
     dependsOn: terraforminit
-    condition: succeeded()
     displayName: 'Terraform Plan' 
     pool: Self-Hosted
     steps:
