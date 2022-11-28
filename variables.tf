@@ -27,7 +27,12 @@ variable "esxi_password" {
 
 ## ESXI Guest Variables 
 
-variable "guest_name" {
+variable "vm_count" {
+  type        = string
+  description = "Number of Virtual Machines"
+}
+
+variable "guest_name_prefix" {
     type = string
     description = "name for guest VM"
 }

@@ -21,7 +21,8 @@ provider "esxi" {
 }
 
 resource "esxi_guest" "vm" {
-  guest_name         = var.guest_name
+  count              = var.vm_count
+  guest_name         = var.guest_name_prefix
   disk_store         = var.disk_store
   clone_from_vm      = var.clone_from_vm
 
