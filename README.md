@@ -1,5 +1,4 @@
 [![terraform](https://img.shields.io/badge/Terraform-purple?style=for-the-badge&logo=terraform)](https://www.terraform.io/)
-
 [![esxi](https://img.shields.io/badge/Esxi-green?style=for-the-badge&logo=vmware)](https://www.vmware.com/products/esxi-and-esx.html)
 
 [![Build Status](https://dev.azure.com/qman-being/dreddrealm/_apis/build/status/qman-being.terraform-esxi?branchName=master)](https://dev.azure.com/qman-being/dreddrealm/_build/latest?definitionId=7&branchName=master)
