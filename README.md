@@ -1,5 +1,7 @@
 [![Build Status](https://dev.azure.com/qman-being/dreddrealm/_apis/build/status/qman-being.terraform-esxi?branchName=master)](https://dev.azure.com/qman-being/dreddrealm/_build/latest?definitionId=7&branchName=master)
 
+![visitors](https://visitor-badge.glitch.me/badge?page_id=qman-being.terraform-esxi&left_color=green&right_color=blue)
+
 # Terraform ESXI VM Install
 
 This repo contains the Terraform files required to clone an existing VM to a new VM in ESXI. This is particularly useful if you do not run vCenter in your environment but would still like the benifits of declaring your ESXI infrastructure using IaC. 

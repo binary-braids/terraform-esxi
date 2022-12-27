@@ -16,6 +16,7 @@ stages:
             inputs:
               script: |
                 terraform init -backend-config="/terraform/variables/backend.tf"
+              workingDirectory: '$(System.DefaultWorkingDirectory)/linux'  
 
       - job: 'terraformplan'
         dependsOn: terraforminit
@@ -27,6 +28,7 @@ stages:
             inputs:
               script: |
                 terraform plan -var-file="/terraform/variables/terraform-esxi-vars/linux_template.tfvars"
+              workingDirectory: '$(System.DefaultWorkingDirectory)/linux'
           - checkout: none
 
       - job: 'terraformapply'
@@ -39,6 +41,7 @@ stages:
             inputs:
               script: |
                 terraform apply -var-file="/terraform/variables/terraform-esxi-vars/linux_template.tfvars" -auto-approve
+              workingDirectory: '$(System.DefaultWorkingDirectory)/linux'
           - checkout: none
 
   - stage: 'WindowsTemplate'
@@ -55,6 +58,7 @@ stages:
             inputs:
               script: |
                 terraform init -backend-config="/terraform/variables/backend.tf"
+              workingDirectory: '$(System.DefaultWorkingDirectory)/windows'
       
       - job: 'terraformplan'
         dependsOn: terraforminit
@@ -66,6 +70,7 @@ stages:
             inputs:
               script: |
                 terraform plan -var-file="/terraform/variables/terraform-esxi-vars/windows_template.tfvars"
+              workingDirectory: '$(System.DefaultWorkingDirectory)/windows'
           - checkout: none
       
       - job: 'terraformapply'
@@ -78,6 +83,7 @@ stages:
             inputs:
               script: |
                 terraform apply -var-file="/terraform/variables/terraform-esxi-vars/windows_template.tfvars" -auto-approve
+              workingDirectory: '$(System.DefaultWorkingDirectory)/windows'
           - checkout: none
 
     
