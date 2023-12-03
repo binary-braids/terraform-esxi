@@ -3,7 +3,7 @@ resource "esxi_vswitch" "production" {
 }
 
 resource "esxi_portgroup" "name" {
-  name = var.port_group_name
+  name    = var.port_group_name
   vswitch = esxi_vswitch.production.name
-  vlan = var.port_group_vlan
+  vlan    = var.port_group_vlan
 }
