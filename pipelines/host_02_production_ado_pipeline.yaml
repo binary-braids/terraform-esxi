@@ -1,6 +1,7 @@
 variables:
   - group: terraform_esxi_host_02
   - group: terraform_esxi_host_02_production
+  - group: terraform_esxi_workspace_production
 
 parameters:
   - name: terraformVersion

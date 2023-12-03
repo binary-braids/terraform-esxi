@@ -5,5 +5,13 @@ terraform {
       source = "registry.terraform.io/josenk/esxi"
     }
   }
-  backend "remote" {}
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "#{terraform_orginization}#"
+    token = "#{terraform_token}#"
+
+    workspaces {
+      name = "#{terraform_workspace}#"
+    }
+  }
 }
