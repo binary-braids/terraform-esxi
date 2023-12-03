@@ -1,0 +1,111 @@
+variables:
+  - group: terraform_esxi_host_01
+  - group: terraform_esxi_host_01_production
+
+parameters:
+  - name: terraformVersion
+    type: string
+    default: 'latest'
+  - name: agentPool
+    displayName: 'Agent Pool Selection'
+    type: string
+    default: Self-Hosted
+    values:
+    - Self-Hosted
+    - Oracle-Cloud
+
+trigger:
+- none
+
+stages:
+  - stage: 'ProductionHost01Plan'
+    dependsOn: []
+    displayName: 'Production Host 01 Terraform Plan'
+
+    jobs:
+      - job: 'terraforminitplan'
+        displayName: 'Initialize and Plan Terraform for Host 01 Resources'
+        pool: ${{ parameters.agentPool }}
+
+        steps:
+
+          - task: TerraformInstaller@1
+            displayName: 'Terraform Install'
+            inputs:
+              terraformVersion: ${{ parameters.terraformVersion }}
+
+          - task: replacetokens@5
+            inputs:
+              rootDirectory: '$(System.DefaultWorkingDirectory)/production/host_01/'
+              targetFiles: |
+                **/providers.tf
+                **/*.tfvars
+              encoding: 'auto'
+              tokenPattern: 'default'
+              writeBOM: true
+              actionOnMissing: 'warn'
+              enableTelemetry: false
+
+          - task: CmdLine@2
+            displayName: 'Terraform Init'
+            inputs:
+              script: |
+                terraform init
+              workingDirectory: '$(System.DefaultWorkingDirectory)/production/host_01/'
+
+          - task: CmdLine@2
+            displayName: 'Terraform Plan'
+            inputs:
+              script: |
+                terraform plan -out ${BUILD_BUILDNUMBER}.tfplan
+              workingDirectory: '$(System.DefaultWorkingDirectory)/production/host_01/'
+
+          - task: ArchiveFiles@2
+            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+            displayName: 'Create Plan Artifact'
+            inputs:
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/production/host_01/'
+              includeRootFolder: false
+              archiveType: 'tar'
+              tarCompression: 'gz'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).tgz'
+              replaceExistingArchive: true
+
+          - task: PublishPipelineArtifact@1
+            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+            displayName: 'Publish Plan Artifact'
+            inputs:
+              targetPath: '$(Build.ArtifactStagingDirectory)'
+              artifactName: 'esxi-production-host-01-plan'
+
+  - stage: 'ProductionHost01Apply'
+    dependsOn: 'ProductionHost01Plan'
+    displayName: Production Host 01 Apply
+
+    jobs:
+      - deployment: 'TerraformApplyProductionHost01'
+        displayName: ' Apply Terraform for Production Host 01 Resources'
+        pool: ${{ parameters.agentPool }}
+        environment: 'ESXI - Production'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+
+              - task: TerraformInstaller@1
+                displayName: 'Terraform Install'
+                inputs:
+                  terraformVersion: ${{ parameters.terraformVersion }}
+
+              - task: ExtractFiles@1
+                displayName: 'Extract Plan Artifact'
+                inputs:
+                  archiveFilePatterns: '$(Pipeline.Workspace)/esxi-production-host-01-plan/$(Build.BuildNumber).tgz'
+                  destinationFolder: '$(System.DefaultWorkingDirectory)/production/host_01/'
+                  cleanDestinationFolder: true
+
+              - task: CmdLine@2
+                inputs:
+                  script: |
+                    terraform apply ${BUILD_BUILDNUMBER}.tfplan
+                  workingDirectory: '$(System.DefaultWorkingDirectory)/production/host_01/'
