@@ -38,7 +38,7 @@ stages:
           - task: replacetokens@5
             displayName: Replace tokens for .tf files 
             inputs:
-              rootDirectory: '$(System.DefaultWorkingDirectory)/homelab_domain/'
+              rootDirectory: '$(System.DefaultWorkingDirectory)/production/host_01/'
               targetFiles: |
                 **/*.tf
                 **/*.tfvars
