@@ -3,16 +3,6 @@ variable "guest_name" {
   type        = string
 }
 
-variable "boot_disk_type" {
-  description = "The type for the guest VM boot disk"
-  type        = string
-}
-
-variable "boot_disk_size" {
-  description = "The size of the guest VM boot disk"
-  type        = number
-}
-
 variable "boot_firmware" {
   description = "The firmware type for the guest VM"
   type        = string
@@ -31,6 +21,21 @@ variable "memsize" {
 variable "numvcpus" {
   description = "The number of vCPUs to allocate to the guest VM"
   type        = number
+}
+
+variable "power" {
+  description = "Set the guest VM Power state"
+  type = string
+}
+
+variable "resource_pool_name" {
+  description = "The name of the Resource Pool for the guest VM"
+  type = string
+}
+
+variable "virthwver" {
+  description = "The hardware version of the guest VM"
+  type = number
 }
 
 variable "virtual_network" {

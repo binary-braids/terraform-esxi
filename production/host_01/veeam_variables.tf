@@ -3,16 +3,6 @@ variable "veeam_guest_name" {
   type        = string
 }
 
-variable "veeam_boot_disk_type" {
-  description = "The type for the guest VM boot disk"
-  type        = string
-}
-
-variable "veeam_boot_disk_size" {
-  description = "The size of the guest VM boot disk"
-  type        = number
-}
-
 variable "veeam_memsize" {
   description = "The amount of memory to allocate the guest VM in MB (1024 = 1GB)"
   type        = number
@@ -31,6 +21,21 @@ variable "veeam_disk_store" {
 variable "veeam_numvcpus" {
   description = "The number of vCPUs to allocate to the guest VM"
   type        = number
+}
+
+variable "veeam_power" {
+  description = "Set the guest VM Power state"
+  type = string
+}
+
+variable "veeam_resource_pool_name" {
+  description = "The name of the Resource Pool for the guest VM"
+  type = string
+}
+
+variable "veeam_virthwver" {
+  description = "The hardware version of the guest VM"
+  type = number
 }
 
 variable "veeam_virtual_network" {

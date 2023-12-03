@@ -1,11 +1,11 @@
 resource "esxi_guest" "vm" {
-  guest_name     = var.guest_name
-  boot_disk_type = var.boot_disk_type
-  boot_disk_size = var.boot_disk_size
-  boot_firmware  = var.boot_firmware
-  disk_store     = var.disk_store
-  memsize        = var.memsize
-  numvcpus       = var.numvcpus
+  guest_name          = var.guest_name
+  boot_firmware       = var.boot_firmware
+  disk_store          = var.disk_store
+  memsize             = var.memsize
+  numvcpus            = var.numvcpus
+  resource_pool_name  = var.resource_pool_name
+  virthwver           = var.virthwver
 
   network_interfaces {
     virtual_network = var.virtual_network
