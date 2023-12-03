@@ -1,5 +1,6 @@
 variables:
-  - group: terraform-esxi-production-host-01
+  - group: terraform_esxi_host_01
+  - group: terraform_esxi_host_01_production
 
 parameters:
   - name: terraformVersion
