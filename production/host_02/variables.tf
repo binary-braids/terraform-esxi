@@ -1,5 +1,4 @@
-## ESXI Host Variables
-
+# ESXI Host Variables
 variable "esxi_hostname" {
     type = string
     description = "hostname for ESXI host"
@@ -25,36 +24,20 @@ variable "esxi_password" {
     description = "password for ESXI host"
 }
 
-## ESXI Guest Variables 
-
-variable "guest_name" {
-    type = string
-    description = "name for guest VM"
+# ESXI Networking Variables
+variable "vswitch_name" {
+  description = "The name of the vSwitch"
+  type = string
 }
 
-variable "disk_store" {
-    type = string
-    description = "Data Store for guest VM"
+variable "port_group_name" {
+  description = "The name of the Port Group"
+  type = string
 }
 
-variable "clone_from_vm" {
-    type = string
-    description = "Template to clone for new guest VM"
-}
-
-variable "boot_firmware" {
-    type = string
-    description = "Boot firmware for Guest OS"
-}
-
-variable "virtual_network" {
-    type = string
-    description = "Virtual Network for guest VM"
-}
-
-variable "nic_type" {
-    type = string
-    description = "NIC type for guest VM"
+variable "port_group_vlan" {
+  description = "The VLAN ID for the Port Group"
+  type = number
 }
 
 
