@@ -39,7 +39,7 @@ stages:
             inputs:
               rootDirectory: '$(System.DefaultWorkingDirectory)/production/host_01/'
               targetFiles: |
-                **/providers.tf
+                **/*.tf
                 **/*.tfvars
               encoding: 'auto'
               tokenPattern: 'default'
