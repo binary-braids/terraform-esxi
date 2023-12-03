@@ -52,7 +52,7 @@ stages:
             inputs:
               rootDirectory: '$(System.DefaultWorkingDirectory)/production/host_02/'
               targetFiles: |
-                **/*.tfvars
+                terraform.tfvars
               encoding: 'auto'
               tokenPattern: 'default'
               writeBOM: true
