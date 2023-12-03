@@ -36,23 +36,12 @@ stages:
               terraformVersion: ${{ parameters.terraformVersion }}
 
           - task: replacetokens@5
-            displayName: Replace Tokens in TF Files
+            displayName: Replace tokens for .tf files 
             inputs:
-              rootDirectory: '$(System.DefaultWorkingDirectory)/production/host_02/'
+              rootDirectory: '$(System.DefaultWorkingDirectory)/homelab_domain/'
               targetFiles: |
                 **/*.tf
-              encoding: 'auto'
-              tokenPattern: 'default'
-              writeBOM: true
-              actionOnMissing: 'warn'
-              enableTelemetry: false
-
-          - task: replacetokens@5
-            displayName: Replace Tokens in TFVARS Files
-            inputs:
-              rootDirectory: '$(System.DefaultWorkingDirectory)/production/host_02/'
-              targetFiles: |
-                terraform.tfvars
+                **/*.tfvars
               encoding: 'auto'
               tokenPattern: 'default'
               writeBOM: true
