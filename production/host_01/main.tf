@@ -3,6 +3,7 @@ module "networking" {
   source = "./modules/networking"
 
   vswitch_name    = var.vswitch_name
+  uplink_name     = var.uplink_name
   port_group_name = var.port_group_name
   port_group_vlan = var.port_group_vlan
 }
@@ -62,7 +63,7 @@ module "k3s01" {
 
 # Media Server
 module "media" {
-  source = "./modules/virtual_machines"
+  source = "./modules/virtual_machines_with_data_disk"
 
   guest_name          = var.media_guest_name
   boot_firmware       = var.media_boot_firmware
@@ -72,6 +73,8 @@ module "media" {
   power               = var.media_power
   resource_pool_name  = var.media_resource_pool_name
   virthwver           = var.media_virthwver
+  virtual_disk_slot   = var.media_virtual_disk_slot
+  virtual_disk_id     = var.media_virtual_disk_id
   virtual_network     = var.media_virtual_network
   nic_type            = var.media_nic_type
   notes               = var.media_notes

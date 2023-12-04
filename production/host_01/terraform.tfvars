@@ -7,6 +7,7 @@ esxi_password = "#{esxi_password}#"
 
 # Networking
 vswitch_name = "#{vswitch_name}#"
+uplink_name = "#{uplink_name}#"
 port_group_name = "#{port_group_name}#"
 port_group_vlan = #{port_group_vlan}#
 
@@ -58,6 +59,8 @@ media_numvcpus = #{media_numvcpus}#
 media_power = "#{media_power}#"
 media_resource_pool_name  = "#{media_resource_pool_name}#"
 media_virthwver = #{media_virthwver}#
+media_virtual_disk_slot = "#{media_virtual_disk_slot}#"
+media_virtual_disk_id = "#{media_virtual_disk_id}#"
 media_virtual_network = "#{media_virtual_network}#"
 media_nic_type = "#{media_nic_type}#"
 media_notes = "#{media_notes}#"
