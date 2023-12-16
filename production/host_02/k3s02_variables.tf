@@ -3,11 +3,6 @@ variable "k3s02_guest_name" {
   type        = string
 }
 
-variable "k3s02_boot_disk_type" {
-  description = "The type for the guest VM boot disk"
-  type        = string
-}
-
 variable "k3s02_memsize" {
   description = "The amount of memory to allocate the guest VM in MB (1024 = 1GB)"
   type        = number

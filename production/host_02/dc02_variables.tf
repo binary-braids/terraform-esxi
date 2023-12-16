@@ -3,11 +3,6 @@ variable "dc02_guest_name" {
   type        = string
 }
 
-variable "dc02_boot_disk_type" {
-  description = "The type for the guest VM boot disk"
-  type        = string
-}
-
 variable "dc02_memsize" {
   description = "The amount of memory to allocate the guest VM in MB (1024 = 1GB)"
   type        = number

@@ -3,11 +3,6 @@ variable "ansible_guest_name" {
   type        = string
 }
 
-variable "ansible_boot_disk_type" {
-  description = "The type for the guest VM boot disk"
-  type        = string
-}
-
 variable "ansible_memsize" {
   description = "The amount of memory to allocate the guest VM in MB (1024 = 1GB)"
   type        = number
