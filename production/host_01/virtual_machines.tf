@@ -70,6 +70,7 @@ resource "esxi_guest" "k3s_01" {
   power               = var.k3s_01_power
   resource_pool_name  = var.k3s_01_resource_pool_name
   virthwver           = var.k3s_01_virthwver
+  ovf_source          = var.k3s_01_ovf_source
 
 
   network_interfaces {

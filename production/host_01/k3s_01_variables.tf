@@ -38,6 +38,11 @@ variable "k3s_01_virthwver" {
   type = number
 }
 
+variable "k3s_01_ovf_source" {
+  description = "The OVF source for the VM"
+  type = string
+}
+
 variable "k3s_01_virtual_network" {
   description = "The virtual network for the network interface"
   type        = string

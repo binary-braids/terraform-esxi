@@ -59,6 +59,7 @@ k3s_01_numvcpus = #{k3s_01_numvcpus}#
 k3s_01_power = "#{k3s_01_power}#"
 k3s_01_resource_pool_name  = "#{k3s_01_resource_pool_name}#"
 k3s_01_virthwver = #{k3s_01_virthwver}#
+k3s_01_ovf_source = "#{k3s_01_ovf_source}#"
 k3s_01_virtual_network = "#{k3s_01_virtual_network}#"
 k3s_01_nic_type = "#{k3s_01_nic_type}#"
 k3s_01_notes = "#{k3s_01_notes}#"
