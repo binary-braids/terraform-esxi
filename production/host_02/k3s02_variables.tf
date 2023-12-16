@@ -33,6 +33,21 @@ variable "k3s02_numvcpus" {
   type        = number
 }
 
+variable "k3s02_power" {
+  description = "Set the guest VM Power state"
+  type = string
+}
+
+variable "k3s02_resource_pool_name" {
+  description = "The name of the Resource Pool for the guest VM"
+  type = string
+}
+
+variable "k3s02_virthwver" {
+  description = "The hardware version of the guest VM"
+  type = number
+}
+
 variable "k3s02_virtual_network" {
   description = "The virtual network for the network interface"
   type        = string

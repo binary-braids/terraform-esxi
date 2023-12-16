@@ -3,6 +3,11 @@ variable "vswitch_name" {
   type        = string
 }
 
+variable "uplink_name" {
+  description = "The name of the vSwitch uplink"
+  type        = string
+}
+
 variable "port_group_name" {
   description = "The name of the Port Group"
   type        = string
