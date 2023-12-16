@@ -7,6 +7,7 @@ esxi_password = "#{esxi_password}#"
 
 # Networking
 vswitch_name = "#{vswitch_name}#"
+uplink_name = "#{uplink_name}#"
 port_group_name = "#{port_group_name}#"
 port_group_vlan = #{port_group_vlan}#
 
