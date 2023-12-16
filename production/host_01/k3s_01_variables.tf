@@ -38,8 +38,8 @@ variable "k3s_01_virthwver" {
   type = number
 }
 
-variable "k3s_01_ovf_source" {
-  description = "The OVF source for the VM"
+variable "k3s_01_clone_from_vm" {
+  description = "The source VM to clone"
   type = string
 }
 
