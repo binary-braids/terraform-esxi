@@ -78,6 +78,11 @@ resource "esxi_guest" "k3s_01" {
     nic_type            = var.k3s_01_nic_type
   }
 
+  guestinfo = {
+    "metadata" = base64gzip(file("./cloud-init/k3s_01_metadata.cfg"))
+    "metadata.encoding" = "gzip+base64"
+  }
+
   notes               = var.k3s_01_notes
 }
 
@@ -97,6 +102,11 @@ resource "esxi_guest" "k3s_03" {
   network_interfaces {
     virtual_network     = var.k3s_03_virtual_network
     nic_type            = var.k3s_03_nic_type
+  }
+
+  guestinfo = {
+    "metadata" = base64gzip(file("./cloud-init/k3s_03_metadata.cfg"))
+    "metadata.encoding" = "gzip+base64"
   }
 
   notes               = var.k3s_03_notes

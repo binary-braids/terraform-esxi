@@ -78,6 +78,11 @@ resource "esxi_guest" "k3s_02" {
     nic_type            = var.k3s_02_nic_type
   }
 
+  guestinfo = {
+    "metadata" = base64gzip(file("./cloud-init/k3s_02_metadata.cfg"))
+    "metadata.encoding" = "gzip+base64"
+  }
+
   notes               = var.k3s_02_notes
 }
 
