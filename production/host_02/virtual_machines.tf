@@ -79,8 +79,8 @@ resource "esxi_guest" "k3s_02" {
   }
 
   guestinfo = {
-    "metadata" = base64gzip(file("./cloud-init/k3s_02_metadata.cfg"))
-    "metadata.encoding" = "gzip+base64"
+    "metadata" = base64encode(file("./cloud-init/k3s_02_metadata.yml"))
+    "metadata.encoding" = "base64"
   }
 
   notes               = var.k3s_02_notes

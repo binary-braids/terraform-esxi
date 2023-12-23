@@ -79,8 +79,8 @@ resource "esxi_guest" "k3s_01" {
   }
 
   guestinfo = {
-    "metadata" = base64gzip(file("./cloud-init/k3s_01_metadata.cfg"))
-    "metadata.encoding" = "gzip+base64"
+    "metadata" = base64encode(file("./cloud-init/k3s_01_metadata.yml"))
+    "metadata.encoding" = "base64"
   }
 
   notes               = var.k3s_01_notes
@@ -105,8 +105,8 @@ resource "esxi_guest" "k3s_03" {
   }
 
   guestinfo = {
-    "metadata" = base64gzip(file("./cloud-init/k3s_03_metadata.cfg"))
-    "metadata.encoding" = "gzip+base64"
+    "metadata" = base64encode(file("./cloud-init/k3s_03_metadata.yml"))
+    "metadata.encoding" = "base64"
   }
 
   notes               = var.k3s_03_notes

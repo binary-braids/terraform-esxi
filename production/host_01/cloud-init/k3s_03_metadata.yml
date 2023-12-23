@@ -1,8 +1,10 @@
 instance-id: #{k3s03_guest_name}#
+local-hostname: #{k3s03_guest_name}#
 network:  
   version: 2
   ethernets:
-    *:
+    ens33:
+      dhcp4: false
       addresses:
         - #{k3s_03_ip_address}#
       gateway4: #{production_network_gateway}#
