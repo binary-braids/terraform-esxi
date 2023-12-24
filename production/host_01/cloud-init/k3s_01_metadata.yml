@@ -1,3 +1,4 @@
+#cloud-config
 instance-id: #{k3s01_guest_name}#
 local-hostname: #{k3s01_guest_name}#
 network:
