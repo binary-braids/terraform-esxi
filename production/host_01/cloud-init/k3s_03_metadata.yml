@@ -3,7 +3,9 @@ local-hostname: #{k3s03_guest_name}#
 network:  
   version: 2
   ethernets:
-    ens33:
+    nics:
+      match:
+        name: ens*
       dhcp4: false
       addresses:
         - #{k3s_03_ip_address}#
