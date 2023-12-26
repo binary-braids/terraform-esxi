@@ -61,13 +61,6 @@ resource "esxi_guest" "k3s02" {
 }
 
 ## K3s Node
-data "template_file" "k3s_02_metadata" {
-  template = file("./cloud-init/k3s_02_metadata.yaml")
-}
-
-data "template_file" "k3s_02_userdata" {
-  template = file("./cloud-init/k3s_02_userdata.yaml")
-}
 
 resource "esxi_guest" "k3s_02" {
   guest_name          = var.k3s_02_guest_name
@@ -80,7 +73,6 @@ resource "esxi_guest" "k3s_02" {
   virthwver           = var.k3s_02_virthwver
   clone_from_vm       = var.k3s_02_clone_from_vm
 
-
   network_interfaces {
     virtual_network     = var.k3s_02_virtual_network
     nic_type            = var.k3s_02_nic_type
@@ -88,9 +80,9 @@ resource "esxi_guest" "k3s_02" {
 
   guestinfo = {
     "metadata.encoding" = "base64"
-    "metadata" = base64encode(data.template_file.k3s_02_metadata)
+    "metadata" = base64encode(file("./cloud-init/k3s_02_metadata.yml"))
     "userdata.encoding" = "base64"
-    "userdata" = base64encode(data.template_file.k3s_02_userdata)
+    "userdata" = base64encode(file("./cloud-init/k3s_02_userdata.yml"))
   }
 
   notes               = var.k3s_02_notes
