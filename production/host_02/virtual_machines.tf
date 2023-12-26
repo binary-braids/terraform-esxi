@@ -88,9 +88,9 @@ resource "esxi_guest" "k3s_02" {
 
   guestinfo = {
     "metadata.encoding" = "base64"
-    "metadata" = base64(data.template_file.k3s_02_metadata)
+    "metadata" = base64encode(data.template_file.k3s_02_metadata)
     "userdata.encoding" = "base64"
-    "userdata" = base64(data.template_file.k3s_02_userdata)
+    "userdata" = base64encode(data.template_file.k3s_02_userdata)
   }
 
   notes               = var.k3s_02_notes
