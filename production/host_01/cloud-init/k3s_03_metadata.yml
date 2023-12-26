@@ -1,3 +1,6 @@
+#cloud-config
+
+instance-id: #{k3s03_guest_name}#
 local-hostname: #{k3s03_guest_name}#
 network:  
   version: 2
