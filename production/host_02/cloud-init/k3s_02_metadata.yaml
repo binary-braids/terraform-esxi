@@ -4,10 +4,9 @@ instance-id: #{k3s_02_guest_name}#
 local-hostname: #{k3s_02_guest_name}#
 network:
   version: 2
+  renderer: networkd
   ethernets:
-    nics:
-      match:
-        name: ens*
+    ens33:
       dhcp4: false
       addresses:
         - #{k3s_02_ip_address}#
