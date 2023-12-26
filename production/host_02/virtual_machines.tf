@@ -61,6 +61,14 @@ resource "esxi_guest" "k3s02" {
 }
 
 ## K3s Node
+data "template_file" "k3s_02_metadata" {
+  template = file("./cloud-init/k3s_02_metadata.tpl")
+}
+
+data "template_file" "k3s_02_userdata" {
+  template = file("./cloud-init/k3s_02_userdata.tpl")
+}
+
 resource "esxi_guest" "k3s_02" {
   guest_name          = var.k3s_02_guest_name
   boot_firmware       = var.k3s_02_boot_firmware
@@ -79,8 +87,10 @@ resource "esxi_guest" "k3s_02" {
   }
 
   guestinfo = {
-    "metadata" = base64encode(file("./cloud-init/k3s_02_metadata.yml"))
-    "metadata.encoding" = "base64"
+    "metadata.encoding" = "gzip+base64"
+    "metadata" = base64gzip(data.template_file.k3s_02_metadata.rendered)
+    "userdata.encoding" = "gzip+base64"
+    "userdata" = base64gzip(data.template_file.k3s_02_userdata.rendered)
   }
 
   notes               = var.k3s_02_notes
