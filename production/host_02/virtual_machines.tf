@@ -62,11 +62,11 @@ resource "esxi_guest" "k3s02" {
 
 ## K3s Node
 data "template_file" "k3s_02_metadata" {
-  template = file("./cloud-init/k3s_02_metadata.tpl")
+  template = file("./cloud-init/k3s_02_metadata.yaml")
 }
 
 data "template_file" "k3s_02_userdata" {
-  template = file("./cloud-init/k3s_02_userdata.tpl")
+  template = file("./cloud-init/k3s_02_userdata.yaml")
 }
 
 resource "esxi_guest" "k3s_02" {
@@ -87,10 +87,10 @@ resource "esxi_guest" "k3s_02" {
   }
 
   guestinfo = {
-    "metadata.encoding" = "gzip+base64"
-    "metadata" = base64gzip(data.template_file.k3s_02_metadata.rendered)
-    "userdata.encoding" = "gzip+base64"
-    "userdata" = base64gzip(data.template_file.k3s_02_userdata.rendered)
+    "metadata.encoding" = "base64"
+    "metadata" = base64(data.template_file.k3s_02_metadata)
+    "userdata.encoding" = "base64"
+    "userdata" = base64(data.template_file.k3s_02_userdata)
   }
 
   notes               = var.k3s_02_notes
