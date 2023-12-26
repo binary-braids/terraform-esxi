@@ -79,7 +79,7 @@ resource "esxi_guest" "k3s_01" {
   }
 
   guestinfo = {
-    "metadata" = base64encode(file("./cloud-init/k3s_01_metadata.yml"))
+    "metadata" = base64encode(file("./cloud-init/k3s_01_metadata.yaml"))
     "metadata.encoding" = "base64"
   }
 
@@ -105,7 +105,7 @@ resource "esxi_guest" "k3s_03" {
   }
 
   guestinfo = {
-    "metadata" = base64encode(file("./cloud-init/k3s_03_metadata.yml"))
+    "metadata" = base64encode(file("./cloud-init/k3s_03_metadata.yaml"))
     "metadata.encoding" = "base64"
   }
 
