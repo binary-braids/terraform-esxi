@@ -1,17 +1,18 @@
 #cloud-config
 
-instance-id: #{k3s01_guest_name}#
-local-hostname: #{k3s01_guest_name}#
+instance-id: #{k3s_01_guest_name}#
+local-hostname: #{k3s_01_guest_name}#
 network:
   version: 2
+  renderer: networkd
   ethernets:
-    nics:
-      match:
-        name: ens*
-      dhcp4: false
+    ens33:
+      dhcp4: no
       addresses:
-        - #{k3s_01_ip_address}#
-      gateway4: #{production_network_gateway}#
+        - #{k3s_01_ip_address}#/24
+      routes:
+        - to: default
+          via: #{production_network_gateway}# 
       nameservers:
         addresses:
           - #{dns_server_01}#

@@ -7,10 +7,12 @@ network:
   renderer: networkd
   ethernets:
     ens33:
-      dhcp4: false
+      dhcp4: no
       addresses:
-        - #{k3s_02_ip_address}#
-      gateway4: #{production_network_gateway}#
+        - #{k3s_02_ip_address}#/24
+      routes:
+        - to: default
+          via: #{production_network_gateway}# 
       nameservers:
         addresses:
           - #{dns_server_01}#
