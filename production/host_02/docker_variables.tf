@@ -38,6 +38,11 @@ variable "docker_virthwver" {
   type = number
 }
 
+variable "docker_clone_from_vm" {
+  description = "The source VM to clone"
+  type = string
+}
+
 variable "docker_virtual_network" {
   description = "The virtual network for the network interface"
   type        = string
