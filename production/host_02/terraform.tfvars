@@ -50,20 +50,6 @@ k3s02_virtual_network = "#{k3s02_virtual_network}#"
 k3s02_nic_type = "#{k3s02_nic_type}#"
 k3s02_notes = "#{k3s02_notes}#"
 
-#K3s Node
-k3s_02_guest_name = "#{k3s_02_guest_name}#"
-k3s_02_boot_firmware = "#{k3s_02_boot_firmware}#"
-k3s_02_disk_store = "#{k3s_02_disk_store}#"
-k3s_02_memsize = #{k3s_02_memsize}#
-k3s_02_numvcpus = #{k3s_02_numvcpus}#
-k3s_02_power = "#{k3s_02_power}#"
-k3s_02_resource_pool_name  = "#{k3s_02_resource_pool_name}#"
-k3s_02_virthwver = #{k3s_02_virthwver}#
-k3s_02_clone_from_vm = "#{k3s_02_clone_from_vm}#"
-k3s_02_virtual_network = "#{k3s_02_virtual_network}#"
-k3s_02_nic_type = "#{k3s_02_nic_type}#"
-k3s_02_notes = "#{k3s_02_notes}#"
-
 # ansible Server
 ansible_guest_name = "#{ansible_guest_name}#"
 ansible_boot_firmware = "#{ansible_boot_firmware}#"
@@ -78,7 +64,6 @@ ansible_nic_type = "#{ansible_nic_type}#"
 ansible_notes = "#{ansible_notes}#"
 
 # Docker Host
-#K3s Node
 docker_guest_name = "#{docker_guest_name}#"
 docker_boot_firmware = "#{docker_boot_firmware}#"
 docker_disk_store = "#{docker_disk_store}#"
