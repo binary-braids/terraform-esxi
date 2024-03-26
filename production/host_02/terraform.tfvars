@@ -76,3 +76,18 @@ ansible_virthwver = #{ansible_virthwver}#
 ansible_virtual_network = "#{ansible_virtual_network}#"
 ansible_nic_type = "#{ansible_nic_type}#"
 ansible_notes = "#{ansible_notes}#"
+
+# Docker Host
+#K3s Node
+docker_guest_name = "#{docker_guest_name}#"
+docker_boot_firmware = "#{docker_boot_firmware}#"
+docker_disk_store = "#{docker_disk_store}#"
+docker_memsize = #{docker_memsize}#
+docker_numvcpus = #{docker_numvcpus}#
+docker_power = "#{docker_power}#"
+docker_resource_pool_name  = "#{docker_resource_pool_name}#"
+docker_virthwver = #{docker_virthwver}#
+docker_clone_from_vm = "#{docker_clone_from_vm}#"
+docker_virtual_network = "#{docker_virtual_network}#"
+docker_nic_type = "#{docker_nic_type}#"
+docker_notes = "#{docker_notes}#"

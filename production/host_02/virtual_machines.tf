@@ -106,4 +106,29 @@ resource "esxi_guest" "ansible" {
   notes               = var.ansible_notes
 }
 
+# Docker Host
+resource "esxi_guest" "docker" {
+  guest_name          = var.docker_guest_name
+  boot_firmware       = var.docker_boot_firmware
+  disk_store          = var.docker_disk_store
+  memsize             = var.docker_memsize
+  numvcpus            = var.docker_numvcpus
+  power               = var.docker_power
+  resource_pool_name  = var.docker_resource_pool_name
+  virthwver           = var.docker_virthwver
+  clone_from_vm       = var.docker_clone_from_vm
+
+  network_interfaces {
+    virtual_network     = var.docker_virtual_network
+    nic_type            = var.docker_nic_type
+  }
+
+  guestinfo = {
+    "metadata.encoding" = "base64"
+    "metadata" = base64encode(file("./cloud-init/docker_metadata.yaml"))
+  }
+
+  notes               = var.docker_notes
+}
+
 
