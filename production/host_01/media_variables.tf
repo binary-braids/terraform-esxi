@@ -25,17 +25,17 @@ variable "media_numvcpus" {
 
 variable "media_power" {
   description = "Set the guest VM Power state"
-  type = string
+  type        = string
 }
 
 variable "media_resource_pool_name" {
   description = "The name of the Resource Pool for the guest VM"
-  type = string
+  type        = string
 }
 
 variable "media_virthwver" {
   description = "The hardware version of the guest VM"
-  type = number
+  type        = number
 }
 
 variable "media_virtual_disk_slot" {

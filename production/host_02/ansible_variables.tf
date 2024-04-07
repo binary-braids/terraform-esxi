@@ -25,17 +25,17 @@ variable "ansible_numvcpus" {
 
 variable "ansible_power" {
   description = "Set the guest VM Power state"
-  type = string
+  type        = string
 }
 
 variable "ansible_resource_pool_name" {
   description = "The name of the Resource Pool for the guest VM"
-  type = string
+  type        = string
 }
 
 variable "ansible_virthwver" {
   description = "The hardware version of the guest VM"
-  type = number
+  type        = number
 }
 
 variable "ansible_virtual_network" {

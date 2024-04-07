@@ -25,17 +25,17 @@ variable "veeam_numvcpus" {
 
 variable "veeam_power" {
   description = "Set the guest VM Power state"
-  type = string
+  type        = string
 }
 
 variable "veeam_resource_pool_name" {
   description = "The name of the Resource Pool for the guest VM"
-  type = string
+  type        = string
 }
 
 variable "veeam_virthwver" {
   description = "The hardware version of the guest VM"
-  type = number
+  type        = number
 }
 
 variable "veeam_virtual_network" {

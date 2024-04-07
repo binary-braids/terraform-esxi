@@ -1,6 +1,6 @@
 resource "esxi_vswitch" "production" {
   name = var.vswitch_name
-  
+
   uplink {
     name = var.uplink_name
   }
