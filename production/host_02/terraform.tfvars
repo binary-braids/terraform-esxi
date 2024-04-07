@@ -37,19 +37,6 @@ ca_virtual_network = "#{ca_virtual_network}#"
 ca_nic_type = "#{ca_nic_type}#"
 ca_notes = "#{ca_notes}#"
 
-#K3s Node
-k3s02_guest_name = "#{k3s02_guest_name}#"
-k3s02_boot_firmware = "#{k3s02_boot_firmware}#"
-k3s02_disk_store = "#{k3s02_disk_store}#"
-k3s02_memsize = #{k3s02_memsize}#
-k3s02_numvcpus = #{k3s02_numvcpus}#
-k3s02_power = "#{k3s02_power}#"
-k3s02_resource_pool_name  = "#{k3s02_resource_pool_name}#"
-k3s02_virthwver = #{k3s02_virthwver}#
-k3s02_virtual_network = "#{k3s02_virtual_network}#"
-k3s02_nic_type = "#{k3s02_nic_type}#"
-k3s02_notes = "#{k3s02_notes}#"
-
 # ansible Server
 ansible_guest_name = "#{ansible_guest_name}#"
 ansible_boot_firmware = "#{ansible_boot_firmware}#"

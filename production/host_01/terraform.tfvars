@@ -37,19 +37,6 @@ veeam_virtual_network = "#{veeam_virtual_network}#"
 veeam_nic_type = "#{veeam_nic_type}#"
 veeam_notes = "#{veeam_notes}#"
 
-#K3s Node
-k3s01_guest_name = "#{k3s01_guest_name}#"
-k3s01_boot_firmware = "#{k3s01_boot_firmware}#"
-k3s01_disk_store = "#{k3s01_disk_store}#"
-k3s01_memsize = #{k3s01_memsize}#
-k3s01_numvcpus = #{k3s01_numvcpus}#
-k3s01_power = "#{k3s01_power}#"
-k3s01_resource_pool_name  = "#{k3s01_resource_pool_name}#"
-k3s01_virthwver = #{k3s01_virthwver}#
-k3s01_virtual_network = "#{k3s01_virtual_network}#"
-k3s01_nic_type = "#{k3s01_nic_type}#"
-k3s01_notes = "#{k3s01_notes}#"
-
 # Media Server
 media_guest_name = "#{media_guest_name}#"
 media_boot_firmware = "#{media_boot_firmware}#"

@@ -40,26 +40,6 @@ resource "esxi_guest" "ca" {
   notes               = var.ca_notes
 }
 
-## K3s Node
-resource "esxi_guest" "k3s02" {
-  guest_name          = var.k3s02_guest_name
-  boot_firmware       = var.k3s02_boot_firmware
-  disk_store          = var.k3s02_disk_store
-  memsize             = var.k3s02_memsize
-  numvcpus            = var.k3s02_numvcpus
-  power               = var.k3s02_power
-  resource_pool_name  = var.k3s02_resource_pool_name
-  virthwver           = var.k3s02_virthwver
-
-
-  network_interfaces {
-    virtual_network     = var.k3s02_virtual_network
-    nic_type            = var.k3s02_nic_type
-  }
-
-  notes               = var.k3s02_notes
-}
-
 # Ansible Server
 resource "esxi_guest" "ansible" {
   guest_name          = var.ansible_guest_name

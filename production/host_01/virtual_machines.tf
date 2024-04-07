@@ -40,26 +40,6 @@ resource "esxi_guest" "veeam" {
   notes               = var.veeam_notes
 }
 
-## K3s Node
-resource "esxi_guest" "k3s01" {
-  guest_name          = var.k3s01_guest_name
-  boot_firmware       = var.k3s01_boot_firmware
-  disk_store          = var.k3s01_disk_store
-  memsize             = var.k3s01_memsize
-  numvcpus            = var.k3s01_numvcpus
-  power               = var.k3s01_power
-  resource_pool_name  = var.k3s01_resource_pool_name
-  virthwver           = var.k3s01_virthwver
-
-
-  network_interfaces {
-    virtual_network     = var.k3s01_virtual_network
-    nic_type            = var.k3s01_nic_type
-  }
-
-  notes               = var.k3s01_notes
-}
-
 # Media Server
 resource "esxi_guest" "media" {
   guest_name          = var.media_guest_name
