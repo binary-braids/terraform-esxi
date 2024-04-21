@@ -1,0 +1,84 @@
+name: Host 02 Production CI
+
+on:
+  workflow_dispatch: 
+    
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  init_and_plan:
+    name: Terraform Init and Plan
+    runs-on: Self-Hosted
+    environment: "Host 02 Production"
+
+    outputs:
+      planChangedOutput: ${{ steps.terraformPlan.outputs.planChanged }}
+    steps:
+
+      - name: Checkout 🔔
+        uses: actions/checkout@v4
+
+      - name: Map Secrets to Environment Variables 🗺️ 
+        uses: oNaiPs/secrets-to-env-action@v1.5
+        with:
+            secrets: ${{ toJSON(secrets) }}        
+
+      - name: Replace Tokens 🪙
+        uses: cschleiden/replace-tokens@v1.3
+        with:
+          files: '["./production/host_02/*.*"]'
+
+      - name: Install Terraform ⛰️
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        id: terraformInit
+        run: terraform init
+        working-directory: ./production/host_02
+
+      - name: Terraform Plan
+        id: terraformPlan
+        run: |
+          terraform plan -input=false -no-color -out ${{ github.run_number }}.tfplan -detailed-exitcode
+
+          if [ $? -eq 2 ]; then
+            echo "planChanged=true" >> $GITHUB_OUTPUT
+          else
+            echo "planChanged=false" >> $GITHUB_OUTPUT
+          fi 
+        working-directory: ./production/host_02
+
+      - name: Cache Terraform Plan
+        uses: actions/cache/save@v4.0.2
+        with:
+          path: ./production/host_02/${{ github.run_number }}.tfplan
+          key: ${{ github.run_number }}
+
+  apply:
+    name: Terraform Apply
+    needs:
+      - init_and_plan
+    if: needs.init_and_plan.outputs.planChangedOutput == 'true'
+    runs-on: Self-Hosted
+    environment: "Manual Approval"
+
+    steps:
+
+      - name: Checkout 🔔
+        uses: actions/checkout@v4
+
+      - name: Restore Terraform Plan
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ./production/host_02/${{ github.run_number }}.tfplan
+          key: ${{ github.run_number }}
+
+      - name: Install Terraform ⛰️
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Apply
+        run: terraform apply ${{ github.run_number }}.tfplan
+        working-directory: ./production/host_02
+
