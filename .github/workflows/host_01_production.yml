@@ -10,7 +10,7 @@ permissions:
 jobs:
   init_and_plan:
     name: Terraform Init and Plan
-    runs-on: ubuntu-latest
+    runs-on: Self-Hosted
     environment: "Host 01 Production"
 
     outputs:
@@ -61,7 +61,7 @@ jobs:
     needs:
       - init_and_plan
     if: needs.init_and_plan.outputs.planChangedOutput == 'true'
-    runs-on: ubuntu-latest
+    runs-on: Self-Hosted
     environment: "Manual Approval"
 
     steps:
