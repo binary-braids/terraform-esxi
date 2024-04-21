@@ -8,11 +8,11 @@ terraform {
   }
   backend "remote" {
     hostname     = "app.terraform.io"
-    organization = "#{terraform_orginization}#"
-    token        = "#{terraform_token}#"
+    organization = "#{TERRAFORM_ORGANIZATION}#"
+    token        = "#{TERRAFORM_TOKEN}#"
 
     workspaces {
-      name = "#{terraform_workspace}#"
+      name = "#{TERRAFORM_WORKSPACE}#"
     }
   }
 }
