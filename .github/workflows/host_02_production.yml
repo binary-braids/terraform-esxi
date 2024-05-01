@@ -31,6 +31,11 @@ jobs:
         with:
           files: '["./production/host_02/*.*"]'
 
+      - name: Install NodeJS 🖥️   
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Install Terraform ⛰️
         uses: hashicorp/setup-terraform@v3
 
@@ -39,7 +44,7 @@ jobs:
         run: terraform init
         working-directory: ./production/host_02
 
-      - name: Terraform Plan
+      - name: Terraform Plan 🗺️
         id: terraformPlan
         run: |
           terraform plan -input=false -no-color -out ${{ github.sha }}.tfplan -detailed-exitcode 
