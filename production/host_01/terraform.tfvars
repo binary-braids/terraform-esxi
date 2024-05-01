@@ -2,7 +2,7 @@
 esxi_hostname = "#{ESXI_HOSTNAME}#"
 esxi_hostport = "22"
 esxi_hostssl  = "443"
-esxi_username = "#{ESXI_USERNAME}#"
+esxi_username = "terraform"
 esxi_password = "#{ESXI_PASSWORD}#"
 
 # Networking
