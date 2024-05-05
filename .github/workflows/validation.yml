@@ -3,6 +3,9 @@ name: Run validation against Terraform code
 on:
   - pull_request
 
+permissions:
+  contents: write
+
 jobs:
   validation:
     name: Run Validation Checks 
@@ -24,6 +27,7 @@ jobs:
         output-file: README.md
         output-method: replace
         git-push: "true"
+        git-commit-message: "docs: 🤖 Update Terraform Docs"
 
   changelog:
     name: Generate Changelog 🗒️
