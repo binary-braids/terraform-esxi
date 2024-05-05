@@ -22,7 +22,6 @@ jobs:
         output-file: README.md
         output-method: replace
         git-push: "true"
-        recursive: "true"
 
   changelog:
     name: Generate Changelog 🗒️
