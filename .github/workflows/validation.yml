@@ -18,7 +18,7 @@ jobs:
     - name: Generate Terraform Docs 🗒️
       uses: terraform-docs/gh-actions@v1.1.0
       with:
-        working-dir: .
+        find-dir: .
         output-file: README.md
         output-method: replace
         git-push: "true"
