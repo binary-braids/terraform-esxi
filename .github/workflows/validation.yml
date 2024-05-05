@@ -12,11 +12,17 @@ jobs:
     - name: Checkout 🔔
       uses: actions/checkout@v4
 
-    - name: Setup Python 🐍  
-      uses: actions/setup-python@v3
+    - name: Run TFLint 🧹
+      uses: terraform-linters/setup-tflint@v4  
 
-    - name: Run pre-commit 🅿️  
-      uses: pre-commit/action@v3.0.1
+    - name: Generate Terraform Docs 🗒️
+      uses: terraform-docs/gh-actions@v1.1.0
+      with:
+        working-dir: .
+        output-file: README.md
+        output-method: replace
+        git-push: "true"
+        recursive: "true"
 
   changelog:
     name: Generate Changelog 🗒️
