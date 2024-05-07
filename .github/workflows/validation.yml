@@ -15,7 +15,7 @@ jobs:
     - name: Checkout 🔔
       uses: actions/checkout@v4
       with:
-        ref: ${{ github.ref }}
+        ref: ${{ github.event.pull_request.head.ref }}
 
     - name: Run TFLint 🧹
       uses: terraform-linters/setup-tflint@v4  
@@ -41,7 +41,7 @@ jobs:
       - name: Checkout 🔔
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.head_ref }}
 
       - name: Conventional Changelog Action 📋
         id: changelog
