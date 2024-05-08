@@ -29,7 +29,7 @@ jobs:
       - name: Replace Tokens 🪙
         uses: cschleiden/replace-tokens@v1.3
         with:
-          files: '["./production/host_02/*.*"]'
+          files: '["./production/host_02/**/*"]'
 
       - name: Install NodeJS 🖥️   
         uses: actions/setup-node@v4
@@ -64,6 +64,9 @@ jobs:
     runs-on: Self-Hosted
 
     steps:
+
+      - name: Install Docker
+        uses: crazy-max/ghaction-setup-docker@v3
 
       - name: Manual Approval 🚦
         uses: trstringer/manual-approval@v1
