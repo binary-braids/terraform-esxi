@@ -29,7 +29,7 @@ jobs:
       - name: Replace Tokens 🪙
         uses: cschleiden/replace-tokens@v1.3
         with:
-          files: '["./production/host_02/*.*"]'
+          files: '["./production/host_02/**/*"]'
 
       - name: Install NodeJS 🖥️   
         uses: actions/setup-node@v4
