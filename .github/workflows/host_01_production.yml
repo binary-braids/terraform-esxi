@@ -65,6 +65,9 @@ jobs:
 
     steps:
 
+      - name: Install Docker
+        uses: crazy-max/ghaction-setup-docker@v3
+
       - name: Manual Approval 🚦
         uses: trstringer/manual-approval@v1
         with:
