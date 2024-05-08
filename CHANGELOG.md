@@ -1,4 +1,14 @@
-# 0.1.0 (2024-05-07)
+## [0.1.1](https://github.com/binary-braids/terraform-esxi/compare/v0.1.0...v0.1.1) (2024-05-08)
+
+
+### Bug Fixes
+
+* add docker install action to deploy pipelines ([245cf98](https://github.com/binary-braids/terraform-esxi/commit/245cf983ae684e89bfab5c72aae7bafdc5d29efe))
+* fix glob expression in replace tokens action to correctly match all files ([376861e](https://github.com/binary-braids/terraform-esxi/commit/376861e11b674ba6b77dfe8ec3eed93bd9376c33))
+
+
+
+# [0.1.0](https://github.com/binary-braids/terraform-esxi/compare/37964baba625e21f6e17b566823298b5dddb0c3b...v0.1.0) (2024-05-07)
 
 
 ### Bug Fixes
