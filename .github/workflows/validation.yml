@@ -50,6 +50,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           git-user-name: "github-actions[bot]"
           git-user-email: "github-actions[bot]@users.noreply.github.com"
+          git-branch: "${{ github.head_ref }}"
           skip-on-empty: "false"
           release-count: 10
           version-file: package.yaml
