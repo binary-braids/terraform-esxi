@@ -1,3 +1,7 @@
+## [0.1.2](https://github.com/binary-braids/terraform-esxi/compare/v0.1.1...v0.1.2) (2024-05-08)
+
+
+
 ## [0.1.1](https://github.com/binary-braids/terraform-esxi/compare/v0.1.0...v0.1.1) (2024-05-08)
 
 
