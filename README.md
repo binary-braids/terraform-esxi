@@ -10,7 +10,9 @@
 
 This repository contains the Terraform modules for my ESXI homelab. The [registry.terraform.io/josenk/esxi](https://github.com/josenk/terraform-provider-esxi) provider is being used.
 
-The `terraform.tfvars` for the modules are present within this repository which is generall bad advice however I am using the [cschleiden/replace-tokens](https://github.com/cschleiden/replace-tokens) GitHub Action to replace entries in the files with GitHub secret values.
+The `terraform.tfvars` for the modules are present within this repository which is generally bad advice however I am using the [cschleiden/replace-tokens](https://github.com/cschleiden/replace-tokens) GitHub Action to replace entries in the files with GitHub secret values.
+
+The GitHub Actions workflows are designed to skip the deployment job if no changes are found to the Terraform Plan output. This makes it easy for tools like Renovate and Dependabot to invoke the pipelines during dependancy update checks.
 
 ## 📂 Repository structure
 
