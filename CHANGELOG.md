@@ -1,3 +1,12 @@
+## [0.1.5](https://github.com/binary-braids/terraform-esxi/compare/v0.1.4...v0.1.5) (2024-05-11)
+
+
+### Bug Fixes
+
+* Improve validation workflow ([49ed793](https://github.com/binary-braids/terraform-esxi/commit/49ed793607aea936412a14ad16b6dff1fe5c0930))
+
+
+
 ## [0.1.4](https://github.com/binary-braids/terraform-esxi/compare/v0.1.3...v0.1.4) (2024-05-08)
 
 
