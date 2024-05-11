@@ -34,7 +34,7 @@ jobs:
         output-file: README.md
         output-method: replace
         git-push-user-name: "braid-bot[bot]"
-        git-push-user-email: "${{ secrets.BRAID_BOT_APP_ID }}+braid-bot[bot]@users.noreply.github.com"
+        git-push-user-email: "169546839+braid-bot[bot]@users.noreply.github.com"
         git-push: "true"
         git-commit-message: "docs: 🤖 Update Terraform Docs for Workflow Run ID: ${{ github.run_id }} in Branch: ${{ github.head_ref }}"
 
@@ -65,7 +65,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         git-user-name: "braid-bot[bot]"
-        git-user-email: "${{ secrets.BRAID_BOT_APP_ID }}+braid-bot[bot]@users.noreply.github.com"
+        git-user-email: "169546839+braid-bot[bot]@users.noreply.github.com"
         git-branch: "${{ github.head_ref }}"
         skip-on-empty: "true"
         release-count: 10
