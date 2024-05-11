@@ -33,6 +33,8 @@ jobs:
         find-dir: .
         output-file: README.md
         output-method: replace
+        git-push-user-name: "braid-bot[bot]"
+        git-push-user-email: "braid-bot[bot]@users.noreply.github.com"
         git-push: "true"
         git-commit-message: "docs: 🤖 Update Terraform Docs for Workflow Run ID: ${{ github.run_id }} in Branch: ${{ github.head_ref }}"
 
@@ -62,8 +64,8 @@ jobs:
       uses: TriPSs/conventional-changelog-action@v5
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        git-user-name: "github-actions[bot]"
-        git-user-email: "github-actions[bot]@users.noreply.github.com"
+        git-user-name: "braid-bot[bot]"
+        git-user-email: "braid-bot[bot]@users.noreply.github.com"
         git-branch: "${{ github.head_ref }}"
         skip-on-empty: "true"
         release-count: 10
