@@ -1,3 +1,12 @@
+## [0.1.6](https://github.com/binary-braids/terraform-esxi/compare/v0.1.5...v0.1.6) (2024-05-11)
+
+
+### Bug Fixes
+
+* Change GitHub Actions workflow commit user ([f54c7eb](https://github.com/binary-braids/terraform-esxi/commit/f54c7ebd537f90faec6ee2a599ade56d237332eb))
+
+
+
 ## [0.1.5](https://github.com/binary-braids/terraform-esxi/compare/v0.1.4...v0.1.5) (2024-05-11)
 
 
