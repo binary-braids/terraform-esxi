@@ -1,3 +1,12 @@
+## [0.1.9](https://github.com/binary-braids/terraform-esxi/compare/v0.1.8...v0.1.9) (2024-05-11)
+
+
+### Bug Fixes
+
+* change user id for bot ([f1d56d0](https://github.com/binary-braids/terraform-esxi/commit/f1d56d072a3cf7a24fb007e9d2d31daa30ae9114))
+
+
+
 ## [0.1.8](https://github.com/binary-braids/terraform-esxi/compare/v0.1.7...v0.1.8) (2024-05-11)
 
 
