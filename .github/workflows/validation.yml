@@ -14,21 +14,21 @@ jobs:
     steps:
 
     - name: Generate GitHub App Token 🪙
-      uses: tibdex/github-app-token@v2
+      uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2
       id: generate-token
       with:
         app_id: ${{ secrets.BRAID_BOT_APP_ID }}
         private_key: ${{ secrets.BRAID_BOT_PRIVATE_KEY }}
 
     - name: Checkout 🔔
-      uses: actions/checkout@v4
+      uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
       with:
         ref: ${{ github.event.pull_request.head.ref }}
         token: ${{ steps.generate-token.outputs.token }}
 
     - name: Generate Terraform Docs 🗒️
       id: push-terraform-docs-changes
-      uses: terraform-docs/gh-actions@v1.1.0
+      uses: terraform-docs/gh-actions@7a62208a0090636af2df1b739da46d27fd90bdc6 # v1.1.0
       with:
         find-dir: .
         output-file: README.md
@@ -47,21 +47,21 @@ jobs:
     steps:
 
     - name: Generate GitHub App Token 🪙
-      uses: tibdex/github-app-token@v2
+      uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2
       id: generate-token
       with:
         app_id: ${{ secrets.BRAID_BOT_APP_ID }}
         private_key: ${{ secrets.BRAID_BOT_PRIVATE_KEY }}
 
     - name: Checkout 🔔
-      uses: actions/checkout@v4
+      uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
       with:
         ref: ${{ github.event.pull_request.head.ref }}
         token: ${{ steps.generate-token.outputs.token }}
 
     - name: Conventional Changelog Action 📋
       id: changelog
-      uses: TriPSs/conventional-changelog-action@v5
+      uses: TriPSs/conventional-changelog-action@f04dac1fd07687cec8ea302937ca588b33786e98 # v5
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         git-user-name: "braid-bot[bot]"
