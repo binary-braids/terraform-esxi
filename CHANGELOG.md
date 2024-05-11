@@ -1,3 +1,12 @@
+## [0.1.11](https://github.com/binary-braids/terraform-esxi/compare/v0.1.10...v0.1.11) (2024-05-11)
+
+
+### Bug Fixes
+
+* Add additional Renovate configuration ([9261bb9](https://github.com/binary-braids/terraform-esxi/commit/9261bb9b8314c10effe91d872e0f0b179d1f191d))
+
+
+
 ## [0.1.10](https://github.com/binary-braids/terraform-esxi/compare/v0.1.9...v0.1.10) (2024-05-11)
 
 
@@ -61,16 +70,6 @@
 
 
 ## [0.1.2](https://github.com/binary-braids/terraform-esxi/compare/v0.1.1...v0.1.2) (2024-05-08)
-
-
-
-## [0.1.1](https://github.com/binary-braids/terraform-esxi/compare/v0.1.0...v0.1.1) (2024-05-08)
-
-
-### Bug Fixes
-
-* add docker install action to deploy pipelines ([245cf98](https://github.com/binary-braids/terraform-esxi/commit/245cf983ae684e89bfab5c72aae7bafdc5d29efe))
-* fix glob expression in replace tokens action to correctly match all files ([376861e](https://github.com/binary-braids/terraform-esxi/commit/376861e11b674ba6b77dfe8ec3eed93bd9376c33))
 
 
 
