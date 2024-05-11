@@ -1,3 +1,12 @@
+## [0.1.7](https://github.com/binary-braids/terraform-esxi/compare/v0.1.6...v0.1.7) (2024-05-11)
+
+
+### Bug Fixes
+
+* change the github email address ([e5f2a69](https://github.com/binary-braids/terraform-esxi/commit/e5f2a694aa0c657525bf14fdc9e3e71ddb0cc168))
+
+
+
 ## [0.1.6](https://github.com/binary-braids/terraform-esxi/compare/v0.1.5...v0.1.6) (2024-05-11)
 
 
