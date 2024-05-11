@@ -1,4 +1,4 @@
-name: Run validation against Terraform code
+name: Terraform Validation CI
 
 on:
   - pull_request
@@ -12,13 +12,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    - name: Generate GitHub App Token 🪙
+      uses: tibdex/github-app-token@v2
+      id: generate-token
+      with:
+        app_id: ${{ secrets.BRAID_BOT_APP_ID }}
+        private_key: ${{ secrets.BRAID_BOT_PRIVATE_KEY }}
+
     - name: Checkout 🔔
       uses: actions/checkout@v4
       with:
         ref: ${{ github.event.pull_request.head.ref }}
-
-    - name: Run TFLint 🧹
-      uses: terraform-linters/setup-tflint@v4  
+        token: ${{ steps.generate-token.outputs.token }}
 
     - name: Generate Terraform Docs 🗒️
       id: push-terraform-docs-changes
@@ -28,7 +34,7 @@ jobs:
         output-file: README.md
         output-method: replace
         git-push: "true"
-        git-commit-message: "docs: 🤖 Update Terraform Docs"
+        git-commit-message: "docs: 🤖 Update Terraform Docs for Workflow Run ID: ${{ github.run_id }} in Branch: ${{ github.head_ref }}"
 
   changelog:
     name: Generate Changelog 🗒️
@@ -38,20 +44,28 @@ jobs:
       
     steps:
 
-      - name: Checkout 🔔
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
+    - name: Generate GitHub App Token 🪙
+      uses: tibdex/github-app-token@v2
+      id: generate-token
+      with:
+        app_id: ${{ secrets.BRAID_BOT_APP_ID }}
+        private_key: ${{ secrets.BRAID_BOT_PRIVATE_KEY }}
 
-      - name: Conventional Changelog Action 📋
-        id: changelog
-        uses: TriPSs/conventional-changelog-action@v5
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          git-user-name: "github-actions[bot]"
-          git-user-email: "github-actions[bot]@users.noreply.github.com"
-          git-branch: "${{ github.head_ref }}"
-          skip-on-empty: "false"
-          release-count: 10
-          version-file: package.yaml
-          create-summary: true      
+    - name: Checkout 🔔
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+        token: ${{ steps.generate-token.outputs.token }}
+
+    - name: Conventional Changelog Action 📋
+      id: changelog
+      uses: TriPSs/conventional-changelog-action@v5
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        git-user-name: "github-actions[bot]"
+        git-user-email: "github-actions[bot]@users.noreply.github.com"
+        git-branch: "${{ github.head_ref }}"
+        skip-on-empty: "true"
+        release-count: 10
+        version-file: package.yaml
+        create-summary: true      
