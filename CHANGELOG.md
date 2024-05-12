@@ -1,3 +1,17 @@
+## [0.1.12](https://github.com/binary-braids/terraform-esxi/compare/v0.1.11...v0.1.12) (2024-05-12)
+
+
+### Bug Fixes
+
+* add environment to host 02 workflow ([27b1edd](https://github.com/binary-braids/terraform-esxi/commit/27b1edda990cc51271c1966e5a5b11706d3bc594))
+* change Terraform Docs to bash script instead of action ([2147143](https://github.com/binary-braids/terraform-esxi/commit/214714360decdf5914d5ea9967e88969f4c29dc7))
+* correct tf-docs command ([ba30f5b](https://github.com/binary-braids/terraform-esxi/commit/ba30f5bc5033a34ea870d8acc28712fecc6fe2f8))
+* Improve Validation and Deployment workflows ([95a4031](https://github.com/binary-braids/terraform-esxi/commit/95a40313366b8a95560bcbe5af57d0fe4b1996fd))
+* modify terraform docs action ([3b68ed0](https://github.com/binary-braids/terraform-esxi/commit/3b68ed07e8dfbe09df3eab82db1c3399f7aceeda))
+* Remove node install action ([43cb90b](https://github.com/binary-braids/terraform-esxi/commit/43cb90b2e83fa865182cb005a9cb6ef021536e4f))
+
+
+
 ## [0.1.11](https://github.com/binary-braids/terraform-esxi/compare/v0.1.10...v0.1.11) (2024-05-11)
 
 
@@ -66,10 +80,6 @@
 
 
 ## [0.1.3](https://github.com/binary-braids/terraform-esxi/compare/v0.1.2...v0.1.3) (2024-05-08)
-
-
-
-## [0.1.2](https://github.com/binary-braids/terraform-esxi/compare/v0.1.1...v0.1.2) (2024-05-08)
 
 
 

@@ -1,7 +1,8 @@
-name: Host 01 Production CI
+name: Host 01 Production CD
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
+  pull_request: 
     
 permissions:
   contents: write
@@ -60,8 +61,9 @@ jobs:
     name: Terraform Apply
     needs:
       - init_and_plan
-    if: github.event_name != 'pull_request' && needs.init_and_plan.outputs.planExitcode == 2
+    if: needs.init_and_plan.outputs.planExitcode == 2
     runs-on: Self-Hosted
+    environment: "Host 01 Production"
 
     steps:
 
