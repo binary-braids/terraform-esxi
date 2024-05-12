@@ -19,25 +19,25 @@ jobs:
     steps:
 
       - name: Checkout 🔔
-        uses: actions/checkout@v4
+        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
 
       - name: Map Secrets to Environment Variables 🗺️ 
-        uses: oNaiPs/secrets-to-env-action@v1.5
+        uses: oNaiPs/secrets-to-env-action@ec46a22bfc9b37e014b627b3208b07eb8909ea0f # v1.5
         with:
             secrets: ${{ toJSON(secrets) }}        
 
       - name: Replace Tokens 🪙
-        uses: cschleiden/replace-tokens@v1.3
+        uses: cschleiden/replace-tokens@4d5a042c84c3568b3858b7af9394923d2d5195c9 # v1.3
         with:
           files: '["./production/host_01/**/*"]'
 
       - name: Install NodeJS 🖥️
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
           node-version: 20
 
       - name: Install Terraform ⛰️
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@651471c36a6092792c552e8b1bef71e592b462d8 # v3
 
       - name: Terraform Init 🏃
         id: terraformInit
@@ -51,7 +51,7 @@ jobs:
         working-directory: ./production/host_01
 
       - name: Cache Terraform Plan 📦
-        uses: actions/cache/save@v4.0.2
+        uses: actions/cache/save@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
         with:
           path: ./production/host_01/**
           key: ${{ github.sha }}
@@ -66,10 +66,10 @@ jobs:
     steps:
 
       - name: Install Docker
-        uses: crazy-max/ghaction-setup-docker@v3
+        uses: crazy-max/ghaction-setup-docker@5bddaa4323ffd60efb2b5045b75b9637c12d4e50 # v3
 
       - name: Manual Approval 🚦
-        uses: trstringer/manual-approval@v1
+        uses: trstringer/manual-approval@a824dad59ac64ac825ab8725599e483e24aa2815 # v1
         with:
           secret: ${{ github.TOKEN }}
           approvers: data-tangles
@@ -79,16 +79,16 @@ jobs:
           exclude-workflow-initiator-as-approver: false
 
       - name: Checkout 🔔
-        uses: actions/checkout@v4
+        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
 
       - name: Restore Terraform Plan 🗺️
-        uses: actions/cache/restore@v4.0.2
+        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
         with:
           path: ./production/host_01/**
           key: ${{ github.sha }}
 
       - name: Install Terraform ⛰️
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@651471c36a6092792c552e8b1bef71e592b462d8 # v3
 
       - name: Terraform Apply 🚀
         run: terraform apply ${{ github.sha }}.tfplan
