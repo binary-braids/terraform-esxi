@@ -1,6 +1,6 @@
-[![Host 01 Production CI](https://github.com/binary-braids/terraform-esxi/actions/workflows/host_01_production.yml/badge.svg)](https://github.com/binary-braids/terraform-esxi/actions/workflows/host_01_production.yml)
-[![Host 02 Production CI](https://github.com/binary-braids/terraform-esxi/actions/workflows/host_02_production.yml/badge.svg)](https://github.com/binary-braids/terraform-esxi/actions/workflows/host_02_production.yml)
-[![Run validation against Terraform code](https://github.com/binary-braids/terraform-esxi/actions/workflows/validation.yml/badge.svg)](https://github.com/binary-braids/terraform-esxi/actions/workflows/validation.yml)
+[![Terraform Validation CI](https://github.com/binary-braids/terraform-esxi/actions/workflows/validation.yml/badge.svg)](https://github.com/binary-braids/terraform-esxi/actions/workflows/validation.yml)
+[![Host 01 Production CD](https://github.com/binary-braids/terraform-esxi/actions/workflows/host_01_production.yml/badge.svg)](https://github.com/binary-braids/terraform-esxi/actions/workflows/host_01_production.yml)
+[![Host 02 Production CD](https://github.com/binary-braids/terraform-esxi/actions/workflows/host_02_production.yml/badge.svg)](https://github.com/binary-braids/terraform-esxi/actions/workflows/host_02_production.yml)
 
 [![terraform](https://img.shields.io/badge/Terraform-purple?style=for-the-badge&logo=terraform)](https://www.terraform.io/)
 [![renovate](https://img.shields.io/badge/renovate-enabled-brightgreen?style=for-the-badge&logo=renovatebot)](https://github.com/renovatebot/renovate)
