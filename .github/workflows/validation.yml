@@ -34,13 +34,24 @@ jobs:
       with:
         tflint_version: latest
 
+    - name: Download and install Terraform Docs
+      run: |
+        curl -Lo ./terraform-docs.tar.gz https://github.com/terraform-docs/terraform-docs/releases/download/v0.17.0/terraform-docs-v0.17.0-$(uname)-amd64.tar.gz
+        tar -xzf terraform-docs.tar.gz
+        chmod +x terraform-docs
+        mv terraform-docs /usr/local/bin/terraform-docs
+
     - name: Generate Terraform Docs 🗒️
-      id: push-terraform-docs-changes
-      uses: terraform-docs/gh-actions@7a62208a0090636af2df1b739da46d27fd90bdc6 # v1.1.0
-      with:
-        find-dir: .
-        output-file: README.md
-        output-method: replace
+      run: |
+        # Get the current working directory
+        root_folder=$(pwd)
+      
+        # Run terraform-docs command for each subfolder
+        for folder in "$root_folder"/*; do
+            if [ -d "$folder" ]; then
+                terraform-docs markdown --recursive --recursive-path "$folder" --output-file "$folder/README.md"
+            fi
+        done
 
     - name: Run Terraform fmt ✅
       run: |
