@@ -43,14 +43,12 @@ jobs:
 
     - name: Generate Terraform Docs 🗒️
       run: |
-        # Get the current working directory
-        root_folder=$(pwd)
+        # Get folders which contain .tf files
+        folder_list=$(find . -name '*.tf' -printf '%h\n' | sort -u)
       
         # Run terraform-docs command for each subfolder
-        for folder in "$root_folder"/*; do
-            if [ -d "$folder" ]; then
-                terraform-docs markdown --recursive --recursive-path "$folder" --output-file "$folder/README.md"
-            fi
+        for folder in $folder_list; do
+          terraform-docs markdown table --output-file README.md "$folder"
         done
 
     - name: Run Terraform fmt ✅
