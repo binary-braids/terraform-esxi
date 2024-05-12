@@ -36,7 +36,7 @@ jobs:
 
     - name: Generate Terraform Docs 🗒️
       id: push-terraform-docs-changes
-      uses: terraform-docs/gh-actions@v1.1.0
+      uses: terraform-docs/gh-actions@7a62208a0090636af2df1b739da46d27fd90bdc6 # v1.1.0
       with:
         find-dir: .
         output-file: README.md
