@@ -15,7 +15,7 @@ variable "game_boot_firmware" {
 
 variable "game_boot_disk_size" {
   description = "The boot disk size for the guest VM"
-  type        = string
+  type        = number
 }
 
 variable "game_disk_store" {

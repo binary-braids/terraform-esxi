@@ -55,6 +55,7 @@ media_notes              = "Media Server"
 # Game Server
 game_guest_name         = "#{GAME_GUEST_NAME}#"
 game_boot_firmware      = "efi"
+game_boot_disk_size     = 80
 game_disk_store         = "VM-240GB-SSD3"
 game_memsize            = 8096
 game_numvcpus           = 4
