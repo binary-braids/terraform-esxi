@@ -76,6 +76,11 @@ jobs:
           path: ./production/host_01/**
           key: ${{ github.sha }}
 
+      - name: Install NodeJS 🖥️
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Install Terraform ⛰️
         uses: hashicorp/setup-terraform@v3
 
