@@ -51,3 +51,16 @@ media_virtual_disk_id    = "#{MEDIA_VIRTUAL_DISK_ID}#"
 media_virtual_network    = "VM Network"
 media_nic_type           = "vmxnet3"
 media_notes              = "Media Server"
+
+# Game Server
+game_guest_name         = "#{GAME_GUEST_NAME}#"
+game_boot_firmware      = "efi"
+game_disk_store         = "VM-240GB-SSD3"
+game_memsize            = 8096
+game_numvcpus           = 4
+game_power              = "on"
+game_resource_pool_name = "/"
+game_virthwver          = 21
+game_virtual_network    = "VM Network"
+game_nic_type           = "vmxnet3"
+game_notes              = "Game Server"

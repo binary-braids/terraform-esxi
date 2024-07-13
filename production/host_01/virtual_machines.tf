@@ -57,11 +57,30 @@ resource "esxi_guest" "media" {
   }
 
   network_interfaces {
-    virtual_network = var.veeam_virtual_network
-    nic_type        = var.veeam_nic_type
+    virtual_network = var.game_virtual_network
+    nic_type        = var.game_nic_type
   }
 
   notes = var.media_notes
+}
+
+# Game Server
+resource "esxi_guest" "game" {
+  guest_name         = var.game_guest_name
+  boot_firmware      = var.game_boot_firmware
+  disk_store         = var.game_disk_store
+  memsize            = var.game_memsize
+  numvcpus           = var.game_numvcpus
+  power              = var.game_power
+  resource_pool_name = var.game_resource_pool_name
+  virthwver          = var.game_virthwver
+
+  network_interfaces {
+    virtual_network = var.game_virtual_network
+    nic_type        = var.game_nic_type
+  }
+
+  notes = var.game_notes
 }
 
 
