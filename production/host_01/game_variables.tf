@@ -13,6 +13,11 @@ variable "game_boot_firmware" {
   type        = string
 }
 
+variable "game_boot_disk_size" {
+  description = "The boot disk size for the guest VM"
+  type        = string
+}
+
 variable "game_disk_store" {
   description = "The name of the data store where the guest VM will be created"
   type        = string

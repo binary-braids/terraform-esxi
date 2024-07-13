@@ -67,6 +67,7 @@ resource "esxi_guest" "media" {
 # Game Server
 resource "esxi_guest" "game" {
   guest_name         = var.game_guest_name
+  boot_disk_size     = var.game_boot_disk_size
   boot_firmware      = var.game_boot_firmware
   disk_store         = var.game_disk_store
   memsize            = var.game_memsize
