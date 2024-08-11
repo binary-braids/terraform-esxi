@@ -57,8 +57,8 @@ resource "esxi_guest" "media" {
   }
 
   network_interfaces {
-    virtual_network = var.game_virtual_network
-    nic_type        = var.game_nic_type
+    virtual_network = var.media_virtual_network
+    nic_type        = var.media_nic_type
   }
 
   notes = var.media_notes
