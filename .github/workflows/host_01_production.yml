@@ -69,7 +69,7 @@ jobs:
         uses: crazy-max/ghaction-setup-docker@635d07c09dc2b52072362e9bb37e7e789767106d # v3
 
       - name: Manual Approval 🚦
-        uses: trstringer/manual-approval@662b3ddbc7685f897992051e87e1b4b58c07dc03 # v1
+        uses: trstringer/manual-approval@a1f96b91e22565d2730d88ae055c8dc333e471c1 # v1
         with:
           secret: ${{ github.TOKEN }}
           approvers: data-tangles
